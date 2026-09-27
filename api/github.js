@@ -1,5 +1,5 @@
 export default async function handler(req, res) {
-  const username = req.query.USERNAME;
+  const username = req.query.username;
   const token = process.env.GITHUB_TOKEN;
 
   if (!username) {
