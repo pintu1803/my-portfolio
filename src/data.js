@@ -1,10 +1,13 @@
 const githubUsername = "pintu1803";
-const linkedinuser = "pinsaini-in"
+const linkedinuser = "pinsaini-in";
+const yourName = "Pintu Saini";
+const title = "Backend Engineer — Distributed Systems & AI Infrastructure";
+const location = "Bangalore, India";
 
 export const profile = {
-  name: "Your Name", // TODO: replace with your name
-  title: "Backend Engineer — Distributed Systems & AI Infrastructure",
-  location: "Bangalore, India",
+  name: yourName, // TODO: replace with your name
+  title: title,
+  location: location,
   tagline:
     "I build backend systems that hold up under load — and lately, the AI pipelines that sit on top of them.",
   email: "pintusaininch2018@gmail.com", // TODO

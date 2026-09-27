@@ -354,16 +354,16 @@ body {
   background-color: var(--border);
 }
 .contrib-box.level-1 {
-  background-color: rgba(226, 161, 61, 0.25);
+  background-color: rgba(63, 185, 80, 0.25);
 }
 .contrib-box.level-2 {
-  background-color: rgba(226, 161, 61, 0.45);
+  background-color: rgba(63, 185, 80, 0.45);
 }
 .contrib-box.level-3 {
-  background-color: rgba(226, 161, 61, 0.7);
+  background-color: rgba(63, 185, 80, 0.7);
 }
 .contrib-box.level-4 {
-  background-color: var(--accent);
+  background-color: #3fb950;
 }
 
 /* Footer */
