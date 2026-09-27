@@ -1,13 +1,16 @@
+const githubUsername = "pintu1803";
+const linkedinuser = "pinsaini-in"
+
 export const profile = {
-  name: "Pintu Saini", // TODO: replace with your name
+  name: "Your Name", // TODO: replace with your name
   title: "Backend Engineer — Distributed Systems & AI Infrastructure",
   location: "Bangalore, India",
   tagline:
     "I build backend systems that hold up under load — and lately, the AI pipelines that sit on top of them.",
   email: "pintusaininch2018@gmail.com", // TODO
-  github: "https://github.com/pintu1803", // TODO
-  linkedin: "https://linkedin.com/in/pinsaini-in", // TODO
-  githubUsername: "pintu1803", // TODO — used for the GitHub stats card
+  githubUsername,
+  github: `https://github.com/${githubUsername}`,
+  linkedin: `https://linkedin.com/in/${linkedinuser}`, 
 };
 
 export const stats = [

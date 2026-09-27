@@ -7,7 +7,10 @@ export default function Hero() {
       <span className="badge">Open to work</span>
       <h1>{profile.name}</h1>
       <p className="hero-title">{profile.title}</p>
-      <p className="hero-tagline">{profile.tagline}</p>
+      <p className="hero-tagline">
+        <span className="prompt">$</span> {profile.tagline}
+        <span className="cursor" aria-hidden="true" />
+      </p>
 
       <div className="hero-actions">
         <a href="#work" className="btn btn-primary">
