@@ -68,7 +68,7 @@
 .xp-chip{
   padding:4px 10px; border-radius:5px; font:500 11.5px/1.3 var(--x-mono);
   color:#bfe9ff; background:rgba(92,200,255,.09); border:1px solid rgba(92,200,255,.35);
-  color:color-mix(in srgb, var(--x-stack) 55%, #ffffff);
+  color:color-mix(in srgb, var(--x-stack) 55%, var(--text, #ffffff));
   background:color-mix(in srgb, var(--x-stack) 9%, transparent);
   border:1px solid color-mix(in srgb, var(--x-stack) 35%, transparent);
   max-width:100%; overflow-wrap:anywhere;

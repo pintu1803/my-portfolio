@@ -5,7 +5,7 @@ import Work from "./components/Work";
 import Experience from "./components/Experience";
 import GitHubStats from "./components/GitHubStats";
 import Exploring from "./components/Exploring";
-import HireMe from "./components/HireMe";
+import Hireme from "./components/Hireme";
 import Footer from "./components/Footer";
 import CommandMenu from "./components/CommandMenu";
 import "./App.css";
@@ -79,7 +79,7 @@ export default function App() {
       <Experience />
       <GitHubStats />
       <Exploring />
-      <HireMe />
+      <Hireme />
       <Footer />
       <CommandMenu open={cmdOpen} onClose={() => setCmdOpen(false)} />
     </div>
