@@ -14,13 +14,13 @@
 
 .ex-card{
   background:var(--e-surface); border:1px solid var(--e-border); border-radius:8px;
-  padding:24px; text-align:center;
+  padding:24px; text-align:left;
 }
 .ex-title{margin:0 0 14px; font-size:16px; line-height:1.3; font-weight:700; color:var(--e-fg); overflow-wrap:anywhere}
 .ex-text{margin:0; font-size:14px; line-height:1.6; color:var(--e-dim); overflow-wrap:anywhere}
 
 /* ---- keyword chips ---- */
-.ex-chips{list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; justify-content:center; gap:6px}
+.ex-chips{list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; justify-content:flex-start; gap:6px}
 .ex-chip{
   padding:4px 10px; border-radius:5px; font:500 11.5px/1.3 var(--e-mono);
   color:#bfe9ff; background:rgba(92,200,255,.09); border:1px solid rgba(92,200,255,.35);

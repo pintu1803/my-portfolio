@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useLayoutEffect } from "react";
-import { FaSun, FaMoon } from "react-icons/fa6";
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
 import Work from "./components/Work";
@@ -69,7 +68,11 @@ export default function App() {
 
   return (
     <div className="app">
-      <Nav onOpenCommandMenu={() => setCmdOpen(true)} />
+      <Nav
+        onOpenCommandMenu={() => setCmdOpen(true)}
+        theme={theme}
+        onToggleTheme={() => setTheme((t) => (t === "dark" ? "light" : "dark"))}
+      />
       <Hero />
       <Work />
       <Experience />
@@ -77,15 +80,6 @@ export default function App() {
       <Exploring />
       <Footer />
       <CommandMenu open={cmdOpen} onClose={() => setCmdOpen(false)} />
-      <button
-        type="button"
-        className="theme-toggle"
-        aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
-        title={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
-        onClick={() => setTheme((t) => (t === "dark" ? "light" : "dark"))}
-      >
-        {theme === "dark" ? <FaSun /> : <FaMoon />}
-      </button>
     </div>
   );
 }

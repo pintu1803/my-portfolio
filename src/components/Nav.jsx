@@ -1,28 +1,54 @@
 import React from "react";
+import { FaSun, FaMoon } from "react-icons/fa6";
 import { profile } from "../data";
 
-export default function Nav({ onOpenCommandMenu }) {
-  const initials = profile.name
-    .split(" ")
-    .map((w) => w[0])
-    .join("")
-    .slice(0, 2)
-    .toUpperCase();
+const LINKS = [
+  { label: "Work", href: "#work" },
+  { label: "Experience", href: "#experience" },
+  { label: "Github", href: "#github" },
+  { label: "Exploring", href: "#exploring" },
+];
+
+const initials = profile.name
+  .split(" ")
+  .map((w) => w[0])
+  .join("")
+  .toUpperCase();
+
+export default function Nav({ onOpenCommandMenu, theme, onToggleTheme }) {
+  const next = theme === "dark" ? "light" : "dark";
 
   return (
-    <nav className="nav">
-      <a href="#hero" className="nav-logo">
+    <nav className="nav" aria-label="Primary">
+      <a className="nav-logo" href="#hero">
         {initials}
       </a>
+
       <div className="nav-links">
-        <a href="#work">Work</a>
-        <a href="#experience">Experience</a>
-        <a href="#exploring">Exploring</a>
+        {LINKS.map(({ label, href }) => (
+          <a key={href} href={href}>
+            {label}
+          </a>
+        ))}
+        <a href={`mailto:${profile.email}?subject=Let%27s%20work%20together`}>
+          Hire Me
+        </a>
       </div>
-      <button className="nav-cmdk" onClick={onOpenCommandMenu}>
-        <kbd>⌘</kbd>
-        <kbd>K</kbd>
-      </button>
+
+      <div className="nav-actions">
+        <button
+          type="button"
+          className="theme-toggle"
+          aria-label={`Switch to ${next} theme`}
+          title={`Switch to ${next} theme`}
+          onClick={onToggleTheme}
+        >
+          {theme === "dark" ? <FaSun /> : <FaMoon />}
+        </button>
+        <button type="button" className="nav-cmdk" onClick={onOpenCommandMenu} aria-label="Open command menu">
+          <kbd>Ctrl K</kbd>
+        </button>
+      </div>
     </nav>
   );
 }
