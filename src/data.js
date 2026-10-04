@@ -149,34 +149,30 @@ export const experience = [
 export const exploring = [
   {
     title: "Progressively Arriving At",
-    blurb: "Tool calling, ReAct agents, LangGraph, Memory systems, Agentic RAG, MCP",
+    keywords: ["Tool calling", "ReAct agents", "LangGraph", "Memory systems", "Agentic RAG", "MCP"],
   },
   {
     title: "Speech AI",
-    blurb: "ASR, Spectrogram, Fourier Transform, Nyquist theorem, Streaming ASR",
+    keywords: ["ASR", "Spectrogram", "Fourier Transform", "Nyquist theorem", "Streaming ASR"],
   },
   {
     title: "Advance Vision AI",
-    blurb:
-      "Object detection, Image segmentation, OCR, Image captioning, VQA, VLM, Image Generation",
+    keywords: ["Object detection", "Image segmentation", "OCR", "Image captioning", "VQA", "VLM", "Image Generation"],
   },
   {
     title: "Retrieval-Augmented Generation",
-    blurb:
-      "Better chunking, Hybrid search, rerankers, and grounding LLM answers in real source documents.",
+    keywords: ["Better chunking", "Hybrid search", "Rerankers", "Grounded LLM answers"],
   },
   {
     title: "LLM-Backed Tooling",
-    blurb: "Using Gen AI as an engineering tool, not just a chat interface.",
+    keywords: ["Gen AI as an engineering tool"],
   },
   {
     title: "Distributed Systems",
-    blurb:
-      "Microservices, Kafka-based event pipelines, and Redis for fast, consistent state.",
+    keywords: ["Microservices", "Kafka event pipelines", "Redis"],
   },
   {
     title: "Test Automation at Scale",
-    blurb:
-      "Selenium and CI pipelines that catch regressions before they reach production.",
-  }
+    keywords: ["Selenium", "CI pipelines", "Regression testing"],
+  },
 ];
