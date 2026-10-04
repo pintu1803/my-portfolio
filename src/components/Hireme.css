@@ -1,0 +1,67 @@
+/* Hire Me — centred call-to-action box with contact cards.
+   Class names are prefixed "hire-" so they can't collide with other styles.
+   Override the variables below (or define them on :root) to match your site. */
+.hire{
+  --h-surface:var(--surface, #10b869);
+  --h-border:var(--border, #332a1f);
+  --h-fg:var(--text, #f3ede3);
+  --h-dim:var(--text-dim, #1e1999);
+  --h-accent:var(--accent, #da1b51);
+  --h-mono:var(--mono, ui-monospace, "JetBrains Mono", Menlo, Consolas, monospace);
+}
+
+
+.hire-box{
+  padding:clamp(36px, 6vw, 60px) clamp(18px, 3vw, 28px);
+  text-align:center;
+  background:var(--h-surface);
+  border:1px solid var(--h-border);
+  border-top-color:color-mix(in srgb, var(--h-accent) 45%, var(--h-border));
+}
+.hire-heading{
+  max-width:640px; margin:0 auto 16px;
+  font-size:clamp(22px, 2.4vw + 12px, 32px); line-height:1.25; font-weight:700; letter-spacing:-.01em;
+  color:var(--h-fg);
+}
+.hire-text{
+  max-width:620px; margin:0 auto 36px;
+  font-size:15px; line-height:1.7; color:var(--h-dim);
+}
+
+.hire-links{display:flex; flex-wrap:nowrap; justify-content:center; gap:12px}
+.hire-card{
+  flex:0 1 200px; max-width:200px; min-width:0;
+  display:flex; align-items:center; gap:12px; padding:14px;
+  text-align:left; text-decoration:none; color:inherit;
+  background:color-mix(in srgb, var(--h-fg) 2%, transparent);
+  border:1px solid var(--h-border); border-radius:3px;
+  transition:border-color .15s ease, background-color .15s ease;
+}
+.hire-card:hover,
+.hire-card:focus-visible{
+  border-color:var(--h-accent);
+  background:color-mix(in srgb, var(--h-accent) 6%, transparent);
+}
+.hire-card:focus-visible{outline:2px solid var(--h-accent); outline-offset:3px}
+
+.hire-icon{
+  flex:none; width:36px; height:36px; display:inline-flex; align-items:center; justify-content:center;
+  font-size:15px; color:var(--h-dim); border:1px solid var(--h-border); border-radius:50%;
+}
+.hire-info{flex:1 1 auto; min-width:0; display:flex; flex-direction:column; gap:5px}
+.hire-label{
+  font:500 10px/1 var(--h-mono); letter-spacing:.18em; text-transform:uppercase;
+  color:color-mix(in srgb, var(--h-accent) 65%, transparent);
+}
+.hire-value{font-size:13.5px; line-height:1.3; color:var(--h-fg); overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+.hire-arrow{flex:none; font-size:15px; color:var(--h-dim); transition:color .15s ease, transform .15s ease}
+.hire-card:hover .hire-arrow,
+.hire-card:focus-visible .hire-arrow{color:var(--h-accent); transform:translate(1px, -1px)}
+
+@media (max-width:820px){
+  .hire-links{flex-direction:column; align-items:center}
+  .hire-card{flex:none; width:100%; max-width:220px}
+}
+@media (prefers-reduced-motion:reduce){
+  .hire-card, .hire-arrow{transition:none}
+}

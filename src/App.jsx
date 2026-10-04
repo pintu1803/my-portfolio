@@ -5,11 +5,12 @@ import Work from "./components/Work";
 import Experience from "./components/Experience";
 import GitHubStats from "./components/GitHubStats";
 import Exploring from "./components/Exploring";
+import HireMe from "./components/HireMe";
 import Footer from "./components/Footer";
 import CommandMenu from "./components/CommandMenu";
 import "./App.css";
 
-const SECTION_ORDER = ["hero", "work", "experience", "github", "exploring"];
+const SECTION_ORDER = ["hero", "work", "experience", "github", "exploring", "hire"];
 
 export default function App() {
   const [cmdOpen, setCmdOpen] = useState(false);
@@ -78,6 +79,7 @@ export default function App() {
       <Experience />
       <GitHubStats />
       <Exploring />
+      <HireMe />
       <Footer />
       <CommandMenu open={cmdOpen} onClose={() => setCmdOpen(false)} />
     </div>

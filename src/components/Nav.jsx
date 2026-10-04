@@ -7,6 +7,7 @@ const LINKS = [
   { label: "Experience", href: "#experience" },
   { label: "Github", href: "#github" },
   { label: "Exploring", href: "#exploring" },
+  { label: "Hire Me", href: "#hire" },
 ];
 
 const initials = profile.name
@@ -30,9 +31,6 @@ export default function Nav({ onOpenCommandMenu, theme, onToggleTheme }) {
             {label}
           </a>
         ))}
-        <a href={`mailto:${profile.email}?subject=Let%27s%20work%20together`}>
-          Hire Me
-        </a>
       </div>
 
       <div className="nav-actions">
