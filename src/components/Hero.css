@@ -1,0 +1,76 @@
+/* Hero effects — network backdrop, scribbles, terminal, request flow.
+   Layout/typography for .hero, .badge, .btn, .stats still come from App.css. */
+.hero-stage{position:relative; overflow:hidden}
+.hero-stage > .hero{position:relative; z-index:1; text-align:left}
+.hero-stage .hero *{text-align:left}
+
+/* ---- network backdrop ---- */
+.hero-canvas{
+  position:absolute; inset:0; width:100%; height:100%; z-index:0; pointer-events:none;
+  -webkit-mask-image:radial-gradient(ellipse 80% 75% at 70% 45%, #000 20%, transparent 100%);
+          mask-image:radial-gradient(ellipse 80% 75% at 70% 45%, #000 20%, transparent 100%);
+}
+
+/* ---- scribbles: strokes that draw themselves ---- */
+.scribble-host{position:relative; display:inline-block}
+.scribble{position:absolute; overflow:visible; pointer-events:none}
+.scribble--underline{left:-2%; bottom:-16px; width:104%; height:18px; color:var(--accent)}
+.scribble--underline path{stroke-width:3px}
+.scribble--circle{left:-14px; top:-10px; width:calc(100% + 28px); height:calc(100% + 20px); color:var(--text); opacity:.6}
+.scribble--circle path{stroke-width:1.8px}
+.scribble-pen{fill:var(--accent)}
+
+.scribble path,
+.doodles path{
+  fill:none; stroke:currentColor; stroke-linecap:round; stroke-linejoin:round;
+  stroke-dasharray:1 2; stroke-dashoffset:1;
+  animation:scribble-draw var(--dur, 1s) cubic-bezier(.4, 0, .2, 1) var(--delay, 0s) forwards;
+}
+@keyframes scribble-draw{to{stroke-dashoffset:0}}
+
+.doodles{
+  position:absolute; z-index:0; pointer-events:none; color:var(--text); opacity:.45;
+  top:16%; right:max(16px, calc(50% - 600px));
+}
+.doodles path{stroke-width:2px}
+@media (max-width:1100px){.doodles{display:none}}
+
+.hero-sep{color:var(--text-dim); opacity:.6}
+
+/* ---- terminal boot ---- */
+.term{
+  display:grid; max-width:620px; margin:6px 0 0;
+  font:400 13.5px/1.75 var(--mono); color:var(--text-dim); cursor:default;
+}
+.term > *{grid-area:1 / 1}
+.term-ghost{visibility:hidden}
+.term-cmd{color:var(--text)}
+.term-prompt{margin-right:10px; color:var(--accent)}
+.term-out{padding-left:20px; overflow-wrap:anywhere}
+.term-cmd .cursor,
+.term-out .cursor{margin-left:3px}
+.sr-only{
+  position:absolute; width:1px; height:1px; margin:-1px; padding:0; overflow:hidden;
+  clip:rect(0 0 0 0); white-space:nowrap; border:0;
+}
+
+/* ---- request flow ---- */
+.flow{width:100%; max-width:760px; margin-top:44px}
+.flow svg{display:block; width:100%; height:auto; overflow:visible}
+.flow-lane{fill:none; stroke:var(--border); stroke-width:1.5; stroke-dasharray:4 5}
+.flow-packet{fill:var(--accent)}
+.flow-node rect{
+  fill:var(--bg); stroke:var(--border); stroke-width:1;
+  animation:flow-hit calc(var(--flow-period, 2.4s)) linear var(--hit) infinite;
+}
+.flow-node text{fill:var(--text-dim); font:500 11px var(--mono); letter-spacing:.04em}
+@keyframes flow-hit{
+  0%, 8%{stroke:var(--accent)}
+  35%, 100%{stroke:var(--border)}
+}
+@media (max-width:640px){.flow{display:none}}
+
+@media (prefers-reduced-motion:reduce){
+  .scribble path, .doodles path{animation:none; stroke-dashoffset:0}
+  .flow-node rect{animation:none}
+}
