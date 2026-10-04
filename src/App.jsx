@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
+import { FaSun, FaMoon } from "react-icons/fa6";
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
 import Work from "./components/Work";
@@ -13,6 +14,20 @@ const SECTION_ORDER = ["hero", "work", "experience", "github", "exploring"];
 
 export default function App() {
   const [cmdOpen, setCmdOpen] = useState(false);
+  const [theme, setTheme] = useState(() => {
+    try {
+      const saved = localStorage.getItem("theme");
+      if (saved === "light" || saved === "dark") return saved;
+    } catch {}
+    return window.matchMedia?.("(prefers-color-scheme: light)").matches ? "light" : "dark";
+  });
+
+  useLayoutEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    try {
+      localStorage.setItem("theme", theme);
+    } catch {}
+  }, [theme]);
 
   useEffect(() => {
     function handleKey(e) {
@@ -62,6 +77,15 @@ export default function App() {
       <Exploring />
       <Footer />
       <CommandMenu open={cmdOpen} onClose={() => setCmdOpen(false)} />
+      <button
+        type="button"
+        className="theme-toggle"
+        aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
+        title={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
+        onClick={() => setTheme((t) => (t === "dark" ? "light" : "dark"))}
+      >
+        {theme === "dark" ? <FaSun /> : <FaMoon />}
+      </button>
     </div>
   );
 }

@@ -1,5 +1,13 @@
 import React from "react";
+import { FaGithub, FaLinkedinIn, FaXTwitter, FaEnvelope } from "react-icons/fa6";
 import { profile } from "../data";
+
+const links = [
+  { label: "GitHub", href: profile.github, Icon: FaGithub, external: true },
+  { label: "LinkedIn", href: profile.linkedin, Icon: FaLinkedinIn, external: true },
+  { label: "X", href: profile.x, Icon: FaXTwitter, external: true },
+  { label: "Email", href: `mailto:${profile.email}`, Icon: FaEnvelope },
+];
 
 export default function Footer() {
   return (
@@ -9,13 +17,19 @@ export default function Footer() {
         <p className="footer-tagline">{profile.title}</p>
       </div>
       <div className="footer-links">
-        <a href={profile.github} target="_blank" rel="noreferrer">
-          GitHub
-        </a>
-        <a href={profile.linkedin} target="_blank" rel="noreferrer">
-          LinkedIn
-        </a>
-        <a href={`mailto:${profile.email}`}>Email</a>
+        {links
+          .filter((l) => l.href)
+          .map(({ label, href, Icon, external }) => (
+            <a
+              key={label}
+              href={href}
+              aria-label={label}
+              title={label}
+              {...(external ? { target: "_blank", rel: "noreferrer" } : {})}
+            >
+              <Icon />
+            </a>
+          ))}
       </div>
       <p className="footer-copy">
         © {new Date().getFullYear()} {profile.name}

@@ -1,5 +1,6 @@
 const githubUsername = "pintu1803";
 const linkedinuser = "pinsaini-in";
+const xuser = "okpintuok";
 const yourName = "Pintu Saini";
 const title = "AI/ML Engineer | Backend Developer | Distributed Systems";
 const location = "Bangalore, India";
@@ -14,6 +15,7 @@ export const profile = {
   githubUsername,
   github: `https://github.com/${githubUsername}`,
   linkedin: `https://linkedin.com/in/${linkedinuser}`, 
+  x: `https://x.com/${xuser}`
 };
 
 export const stats = [
