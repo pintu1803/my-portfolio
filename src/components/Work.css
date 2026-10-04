@@ -1,0 +1,126 @@
+/* Selected Work — compact, left-aligned row layout.
+   Class names are prefixed with "work-" so they can't collide with other styles.
+   Override the variables below (or define them on :root) to match your site. */
+.work{
+  text-align:left;
+  --w-fg:var(--fg, #f3f0e8);
+  --w-text:var(--text, #c2bcb0);
+  --w-muted:var(--muted, #9a948a);
+  --w-faint:var(--faint, #858074);
+  --w-line:var(--line, rgba(255,255,255,.09));
+  --w-chip-bg:var(--chip-bg, #1b1916);
+  --w-chip-line:var(--chip-line, #2d2a25);
+  --w-accent:var(--accent, #f0a020);
+  --w-live:var(--live, #3ddc84);   /* live status */
+  --w-stack:var(--stack, #8d9296); /*tech stack highlight */
+  --w-mono:ui-monospace, "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace;
+}
+.work *{box-sizing:border-box; text-align:left}
+
+.work-list{border-bottom:1px solid var(--w-line)}
+
+.work-row{
+  display:grid;
+  grid-template-columns:minmax(0, 1fr) minmax(0, 2.15fr);
+  column-gap:clamp(24px, 6vw, 80px);
+  padding:clamp(22px, 3vw, 34px) 0;
+  border-top:1px solid var(--w-line);
+}
+
+/* ---- left column ---- */
+.work-meta{min-width:0}
+.work-eyebrow{
+  display:flex; align-items:center; gap:7px; margin:0 0 8px;
+  font:500 10.5px/1 var(--w-mono); letter-spacing:.14em; text-transform:uppercase; color:var(--w-accent);
+}
+.work-dot{width:5px; height:5px; border-radius:50%; background:currentColor; flex:none}
+.work-name{
+  margin:0 0 6px; font-size:clamp(16px, .9vw + 11px, 20px); line-height:1.25; font-weight:650;
+  letter-spacing:-.005em; color:var(--w-fg); overflow-wrap:anywhere;
+}
+.work-tagline{margin:0 0 12px; font-size:12px; line-height:1.5; font-style:italic; color:var(--w-muted); overflow-wrap:anywhere}
+.work-status{display:flex; flex-wrap:wrap; align-items:center; gap:8px}
+.work-pill{
+  display:inline-block; padding:3px 9px; border-radius:999px;
+  font:500 10px/1.2 var(--w-mono); letter-spacing:.1em; text-transform:uppercase;
+  color:var(--w-muted); border:1px solid var(--w-chip-line); background:transparent;
+}
+.work-pill--live{
+  color:var(--w-live);
+  border-color:rgba(61,220,132,.45);
+  background:rgba(61,220,132,.10);
+  border-color:color-mix(in srgb, var(--w-live) 45%, transparent);
+  background:color-mix(in srgb, var(--w-live) 10%, transparent);
+}
+.work-pill--live::before{
+  content:""; display:inline-block; width:6px; height:6px; margin-right:7px; vertical-align:1px;
+  border-radius:50%; background:currentColor; animation:work-pulse 2.2s ease-out infinite;
+}
+@keyframes work-pulse{
+  0%{box-shadow:0 0 0 0 rgba(61,220,132,.55)}
+  70%{box-shadow:0 0 0 6px rgba(61,220,132,0)}
+  100%{box-shadow:0 0 0 0 rgba(61,220,132,0)}
+}
+.work-host{font:400 10.5px/1.2 var(--w-mono); color:var(--w-faint)}
+
+/* ---- right column ---- */
+.work-body{min-width:0}
+.work-top{display:flex; align-items:flex-start; justify-content:space-between; gap:20px}
+.work-desc{
+  flex:1 1 auto; min-width:0; margin:0 0 14px;
+  font-size:13px; line-height:1.65; color:var(--w-text); overflow-wrap:anywhere;
+}
+.work-live{
+  flex:none; display:inline-flex; align-items:center; gap:6px; min-height:30px; padding:0 12px;
+  font-size:12.5px; font-weight:500; color:var(--w-live); text-decoration:none;
+  border:1px solid rgba(61,220,132,.45); border-radius:3px;
+  border-color:color-mix(in srgb, var(--w-live) 45%, transparent);
+  transition:border-color .15s, background-color .15s;
+}
+.work-live:hover{
+  border-color:var(--w-live);
+  background:rgba(61,220,132,.10);
+  background:color-mix(in srgb, var(--w-live) 10%, transparent);
+}
+.work-live:focus-visible{outline:2px solid var(--w-live); outline-offset:2px}
+.work-live svg{transition:transform .15s}
+.work-live:hover svg{transform:translate(1px,-1px)}
+
+.work-why{margin:0 0 16px; font-size:12px; line-height:1.65; color:var(--w-muted); overflow-wrap:anywhere}
+
+.work-stack-label{
+  display:flex; align-items:center; gap:8px; margin:0 0 10px;
+  font:600 10.5px/1 var(--w-mono); letter-spacing:.16em; text-transform:uppercase; color:var(--w-stack);
+}
+.work-stack-label::before{content:""; width:16px; height:2px; border-radius:2px; background:currentColor; flex:none}
+.work-chips{list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:6px}
+.work-chip{
+  padding:4px 10px; border-radius:5px; font:500 11.5px/1.3 var(--w-mono);
+  color:#bfe9ff; background:rgba(92,200,255,.09); border:1px solid rgba(92,200,255,.35);
+  color:color-mix(in srgb, var(--w-stack) 55%, #ffffff);
+  background:color-mix(in srgb, var(--w-stack) 9%, transparent);
+  border:1px solid color-mix(in srgb, var(--w-stack) 35%, transparent);
+  max-width:100%; overflow-wrap:anywhere;
+  transition:border-color .15s, background-color .15s;
+}
+.work-chip:hover{
+  border-color:var(--w-stack);
+  background:color-mix(in srgb, var(--w-stack) 16%, transparent);
+}
+
+/* ---- tablet / phone: stack the two columns ---- */
+@media (max-width:760px){
+  .work-row{grid-template-columns:minmax(0, 1fr); row-gap:16px}
+  .work-top{flex-direction:column; gap:2px}
+  .work-live{margin-bottom:16px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .work-pill--live::before{animation:none}
+  .work-live, .work-live svg, .work-chip{transition:none}
+}
+
+/* touch screens: keep the link easy to tap */
+@media (pointer:coarse){
+  .work-live{min-height:40px; padding:0 16px}
+}
