@@ -97,22 +97,50 @@ export const projects = [
 
 export const experience = [
   {
+    company: "Ethera Diamonds",
+    link: "https://etheradiamonds.com/",
+    logo: "/logo/ethera.jpg",
+    role: "Senior Backend Developer",
+    dates: "Sept 2026 — Active",
+    blurb: "Lab grown diamonds jewellery.",
+    tech: ["Go", "Python", "Java"],
+    bullets: [
+      "Shipping production features at very high pace",
+      "Engineering Dev Testing framework for feature testing",
+      "Building QA Testing framework for assuring the production quality"
+    ],
+  },
+  {
     company: "Oracle",
     link: "https://www.oracle.com",
+    logo: "/logo/oracle.svg", // put the file in public/logos/ (falls back to an initial tile if missing)
     role: "Senior Member of Technical Staff (IC-3)",
     dates: "Jun 2022 — Apr 2026",
     blurb: "Enterprise software and cloud infrastructure at global scale.",
     tech: ["Java", "Restful API", "Microservices", "Distributed Systems", "CI/CD", "Automation"],
-    achievement: "Code Quality Award and Got one promotion.",
+    // First bullet is always visible; the rest expand on click. Add your measurable wins here.
+    bullets: [
+      "Designed client side exascale cloud APIs for managing storage resources",
+      "Redesigned the volume backup composite API to eliminate redundant double data-copy",
+      "Designed and implemented idempotency for create and update APIs using client-supplied idempotency tokens",
+      "Spearheaded the design and implementation of the multi-tenant ACFS Mount API, enabling cross-tenancy mounting.",
+      " Participated in on-call (SRE/DevOps) rotations to support production systems",
+      "Led onboarding of new engineers by conducting knowledge transfer (KT) sessions on system architecture."
+    ],
   },
   {
     company: "GEP Solutions",
     link: "https://www.gep.com/",
+    logo: "/logo/gep.png",
     role: "Software Engineer Intern",
     dates: "May 2021 — Jul 2021",
     blurb: "Procurement and supply chain software.",
     tech: ["Java", "Python"],
-    achievement: "Worked on API performance and latency optimization. Bagged PPO.",
+    bullets: [
+      "Optimized high-traffic REST APIs using pagination and response filtering",
+      "Improved database query performance by implementing strategic indexing and query optimization",
+      "Received a pre-placement offer (PPO).",
+    ],
   },
 ];
 

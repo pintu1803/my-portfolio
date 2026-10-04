@@ -3,7 +3,7 @@
    Override the variables below (or define them on :root) to match your site. */
 .work{
   text-align:left;
-  --w-fg:var(--fg, #f3f0e8);
+  --w-fg:var(--fg, #9c9f9f);
   --w-text:var(--text, #c2bcb0);
   --w-muted:var(--muted, #9a948a);
   --w-faint:var(--faint, #858074);
