@@ -2,7 +2,7 @@ import React from "react";
 import { FiMail, FiArrowUpRight } from "react-icons/fi";
 import { FaXTwitter, FaLinkedinIn } from "react-icons/fa6";
 import { profile } from "../data";
-import "./HireMe.css";
+import "./Hireme.css";
 
 // last path segment of a profile URL, e.g. https://x.com/foo -> foo
 const tail = (url) => (url ? url.replace(/\/+$/, "").split("/").pop() : "");
